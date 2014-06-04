@@ -1,0 +1,26 @@
+'WELCOMES
+	MSGBOX ( Set your Z Zero to the top of the material., 0, Setting Up )
+	SK
+	MSGBOX ( Now we will zero X and Y, 0, Go baby Go )
+	C3
+'Sample Tiling System
+'Initialize
+   &tile_number = 0
+   &file_to_CUT = ""
+
+'Get Starting Point
+   Input"What is your starting Tile NUMBER ?", &tile_number
+
+'Process Tiles
+   NEXT_TILE:
+     VD, ,,,,,,,,,,,-600,-2000,4000,2000              'Locate Print Display
+     PRINT; "Starting " &tile_number
+     &file_to_CUT = "T" & &tile_number & "_.sbp"
+	 PAUSE UNTIL 2,1
+	 VD                                               'Clear Display
+     FP, &file_to_cut
+     &tile_number = &tile_number + 1                  ' ... increment
+	 GOTO NEXT_TILE 
+
+END
+
